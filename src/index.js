@@ -1,13 +1,14 @@
 import store from "./store";
 import { BUG_ADDED, BUG_REMOVED } from "./actionTypes";
-import { bugAdded } from "./actions";
+import { bugAdded, bugResolved } from "./actions";
 
 const unsubscribe = store.subscribe(() => {
   console.log("store changed", store.getState());
 });
 
 store.dispatch(bugAdded("Bug1"));
-unsubscribe();
+
+store.dispatch(bugResolved(1));
 
 store.dispatch({
   type: BUG_REMOVED,
