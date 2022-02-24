@@ -1,5 +1,5 @@
 import confStore from "./store/confStore";
-import { bugAdded, bugResolved } from "./store/bugs";
+import { bugAdded, bugResolved, unresolvedBugsSelector } from "./store/bugs";
 import { projectAdded } from "./store/project";
 
 const store = confStore();
@@ -31,5 +31,6 @@ store.dispatch(
     id: 1,
   })
 );
-
+const unresolved = unresolvedBugsSelector(store.getState());
+console.log(unresolved);
 console.log(store.getState());
