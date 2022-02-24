@@ -1,4 +1,23 @@
-import { BUG_ADDED, BUG_REMOVED, BUG_RESOLVED } from "./actionTypes";
+// ACTION TYPES
+const BUG_ADDED = "bugAdded";
+const BUG_REMOVED = "bugRemoved";
+const BUG_RESOLVED = "bugResolved";
+
+//ACTIONS CREATORS
+
+export const bugAdded = (description) => ({
+  type: BUG_ADDED,
+  payload: {
+    description,
+  },
+});
+
+export const bugResolved = (id) => ({
+  type: BUG_RESOLVED,
+  payload: {
+    id,
+  },
+});
 
 let lastId = 0;
 
